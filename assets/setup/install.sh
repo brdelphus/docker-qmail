@@ -20,8 +20,10 @@ cd /usr/src
 #tar -zxf netqmail-1.06.tar.gz
 echo "Installing QMAIL"
 tar -zxf /app/setup/netqmail-1.06.tar.gz
+gzip -d /app/setup/roberto-netqmail-1.06.patch-latest.gz
 
 cd netqmail-1.06
+patch -p1 < roberto-netqmail-1.06.patch-latest
 
 groupadd -g 161 nofiles
 useradd -u 161 -g nofiles -d ${QMAIL_HOME}/alias alias
